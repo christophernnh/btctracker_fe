@@ -99,7 +99,7 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-2 bg-neutral-900/50 px-3 py-1.5 rounded border border-neutral-800 text-xs">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span className="text-neutral-400">Pipeline Status: Live Feed</span>
+          <span className="text-neutral-400">Pipeline Status: Live Feed (Last 24h)</span>
         </div>
       </header>
 
@@ -138,7 +138,7 @@ export default function Home() {
         {/* Left Side: Leaderboard Table Component */}
         <section className="lg:col-span-5 bg-neutral-900/20 border border-neutral-900 rounded p-6">
           <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400 mb-4 border-b border-neutral-950 pb-2">
-            Institutional Volume Leaderboard
+            Trade Volume Leaderboard (Last 24 Hours)
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
@@ -146,6 +146,7 @@ export default function Home() {
                 <tr className="text-neutral-500 border-b border-neutral-900">
                   <th className="pb-3 font-medium">Rank</th>
                   <th className="pb-3 font-medium">Aggregate Trade ID</th>
+                  <th className="pb-3 font-medium text-right">Last Trade Time</th>
                   <th className="pb-3 font-medium text-right">
                     Aggregated Volume (USD)
                   </th>
@@ -174,7 +175,7 @@ export default function Home() {
                 {leaderboard.length === 0 && (
                   <tr>
                     <td
-                      colSpan={3}
+                      colSpan={4}
                       className="py-8 text-center text-neutral-600"
                     >
                       Waiting for data blocks to ingest...
