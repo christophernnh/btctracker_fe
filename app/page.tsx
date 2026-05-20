@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 interface LeaderboardItem {
   trade_id: string;
   total_value_usd: number;
+  timestamp: number;
 }
 
 interface MarketEvent {
@@ -93,11 +94,8 @@ export default function Home() {
       <header className="border-b border-neutral-900 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-xl font-bold tracking-tight uppercase text-neutral-100">
-            BTC Volume Tracker
+            BTC/USDT Volume Tracker (BINANCE)
           </h1>
-          <p className="text-xs text-neutral-500 mt-1">
-            Real-time distributed algorithmic event sourcing ledger.
-          </p>
         </div>
         <div className="flex items-center gap-2 bg-neutral-900/50 px-3 py-1.5 rounded border border-neutral-800 text-xs">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -163,6 +161,7 @@ export default function Home() {
                       {(index + 1).toString().padStart(2, "0")}
                     </td>
                     <td className="py-3 text-neutral-300">{item.trade_id}</td>
+                    <td className="py-3 text-right text-neutral-100 font-bold">{item.timestamp ? new Date(item.timestamp * 1000).toLocaleTimeString() : "N/A"}</td>
                     <td className="py-3 text-right text-neutral-100 font-bold">
                       $
                       {item.total_value_usd.toLocaleString(undefined, {
